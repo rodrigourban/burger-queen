@@ -1,9 +1,9 @@
 A make your burger app made with ReactJS.
 
-To use it
+## How to use it
 
-## yarn install
+> yarn install
 
-## yarn start
+> yarn start
 
 Have fun! Rodrigo.

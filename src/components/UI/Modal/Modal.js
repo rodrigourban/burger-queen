@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Backdrop from "../BackDrop/Backdrop";
 import Aux from "../../../hoc/Auxi";
+
 const Modal = styled.div`
   position: fixed;
   z-index: 500;
@@ -20,15 +21,25 @@ const Modal = styled.div`
   }
 `;
 
-const modal = props => (
-  <Aux>
-    <Backdrop show={props.show} clicked={props.modalClose} />
-    <Modal
-      style={{ transform: props.show ? "translateY(0)" : "translateY(-100vh)" }}
-    >
-      {props.children}
-    </Modal>
-  </Aux>
-);
+class modal extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.show !== this.props.show;
+  }
+
+  render() {
+    return (
+      <Aux>
+        <Backdrop show={this.props.show} clicked={this.props.modalClose} />
+        <Modal
+          style={{
+            transform: this.props.show ? "translateY(0)" : "translateY(-100vh)"
+          }}
+        >
+          {this.props.children}
+        </Modal>
+      </Aux>
+    );
+  }
+}
 
 export default modal;

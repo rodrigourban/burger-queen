@@ -3,13 +3,15 @@ import styled from "styled-components";
 import BuildControl from "./BuildControl/BuildControl";
 
 const BuildControls = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
   background-color: #cf8f2e;
   display: flex;
   flex-flow: column;
   align-items: center;
   box-shadow: 0 2px 1px #ccc;
-  margin: auto;
   padding: 10px 0;
 `;
 

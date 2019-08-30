@@ -74,6 +74,10 @@ class BurgerBuilder extends React.Component {
   purchaseCancel = () => {
     this.setState({ purchasing: false });
   };
+
+  purchaseSubmit = () => {
+    alert("You purchased the hamburger of your life");
+  };
   render() {
     const disabledInfo = {
       ...this.state.ingredients
@@ -84,7 +88,12 @@ class BurgerBuilder extends React.Component {
     return (
       <Aux>
         <Modal show={this.state.purchasing} modalClose={this.purchaseCancel}>
-          <OrderSummary ingredients={this.state.ingredients} />
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            purchaseCancel={this.purchaseCancel}
+            purchaseSubmit={this.purchaseSubmit}
+            price={this.state.totalPrice.toFixed(2)}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
